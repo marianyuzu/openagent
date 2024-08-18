@@ -1,0 +1,24 @@
+﻿# Contact Us API Backend
+
+This project contains the backend API for the Contact Us application. The backend is built using ASP.NET Core and is containerized using Docker for deployment.
+
+## Overview
+
+The Contact Us API backend serves as the server-side logic for handling form submissions from the frontend. When a user submits the contact form, the backend processes the request and saves the data as a JSON file in the `data` folder.
+
+## Framework
+
+- **ASP.NET Core**: The backend is developed using ASP.NET Core, a cross-platform framework for building modern, cloud-based, internet-connected applications.
+
+## Features
+
+### 1. Form Submission
+
+When a user submits the contact form from the frontend, the backend API processes the data and saves it as a JSON file in the `data` directory. Each submission is stored as a separate file with a unique filename based on the timestamp of the submission.
+
+- **Endpoint**:
+  - `POST /api/contact/submitform`: Receives the form data and saves it as a JSON file.
+
+### 2. Saving Data
+
+The form data is saved in the `data` folder, located in the root of the project directory. The data is stored in JSON format, allowing easy access and parsing for further processing or analysis.

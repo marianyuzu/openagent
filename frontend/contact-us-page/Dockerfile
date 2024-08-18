@@ -1,27 +1,23 @@
-# Use the official node image as the base image
-FROM node:16
-
-# Set the working directory
+# Use an official Node.js runtime as a parent image
+FROM node:16 AS build
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files
+# Copy package.json and install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
-COPY . .
+COPY . ./
 
 # Build the application
 RUN npm run build
 
-# Use an Nginx server to serve the frontend application
+# Use an Nginx image to serve the frontend
 FROM nginx:alpine
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose the port
+# Expose port 80 to the outside world
 EXPOSE 80
 
-# Start Nginx
+# Start Nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]
