@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: /Users/marian/Desktop/oepnagent_backend/ContactUsApi/ContactUsApi  # Path to your backend's Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "5160:5160"  # Exposes the backend on port 5160
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: /Users/marian/Desktop/openagent/contact-us-page  # Corrected path to your frontend's Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"  # Maps port 3000 of the host to port 80 of the container
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"  # Exposes MongoDB on port 27017
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

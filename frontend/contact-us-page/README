@@ -1,0 +1,34 @@
+# Contact Us Page Frontend
+
+This project contains the frontend of the Contact Us application. The frontend is primarily implemented using React and is containerized using Docker for easy deployment.
+
+## Overview
+
+The Contact Us frontend application is designed to provide users with a simple and intuitive interface for submitting inquiries and feedback. It features two main components: the `ContactInfoPage` and the `ThankYouPage`.
+
+## Main Components
+
+### 1. ContactInfoPage
+
+The `ContactInfoPage` is the primary interface where users can fill out a form to contact the organization. This page includes fields for the user's name, email, phone number, and message. The form submission triggers a POST request to the backend API, which processes the data.
+
+- **Features**:
+  - Displays contact information for the organization, such as phone number, email, and business hours.
+  - Provides a user-friendly form for submitting inquiries.
+  - Includes validation to ensure that all required fields are completed before submission.
+
+- **Key Files**:
+  - `src/pages/ContactInfoPage.js`: The main React component that renders the contact form and handles user input.
+  - `src/pages/ContactInfoPage.css`: The stylesheet for styling the `ContactInfoPage`.
+
+### 2. ThankYouPage
+
+The `ThankYouPage` is displayed after the user successfully submits the contact form. It provides a confirmation that the form has been submitted and thanks the user for their inquiry.
+
+- **Features**:
+  - Displays a thank-you message to the user.
+  - Informs the user that their message has been received and will be responded to shortly.
+
+- **Key Files**:
+  - `src/pages/ThankYouPage.js`: The React component that renders the thank-you message.
+  - `src/pages/ThankYouPage.css`: The stylesheet for styling the `ThankYouPage`.
